@@ -3,7 +3,7 @@ name: Waka Readme
 on:
   workflow_dispatch: # for manual workflow trigger
   schedule:
-    - cron: '30/30 23,6,13 * * *' # runs at every 12AM UTC
+    - cron: '30/30 6 * * *' # runs at every 12AM UTC
 
 jobs:
   update-readme:
@@ -15,9 +15,11 @@ jobs:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           TIME_RANGE: all_time
           SHOW_TITLE: true
-          COMMIT_MESSAGE: Updated the Readme
-          BLOCKS: ->
           SHOW_TIME: true
+          SHOW_TOTAL: true
+          SHOW_MASKED_TIME: true
+          COMMIT_MESSAGE: Updated the Readme
+          # BLOCKS: ->
           LANG_COUNT: 5
           # following flags are required, only if this is not on
           # profile readme, remove the leading `#` to use them
